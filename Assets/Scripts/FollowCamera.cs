@@ -5,6 +5,7 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target;
+    public bool turnOnInMinigame;
     
     
     // Start is called before the first frame update
@@ -23,7 +24,8 @@ public class FollowCamera : MonoBehaviour
         Vector3 originalPosition = transform.position;
         Vector2 tragetPosition = target.position;
         originalPosition.x = tragetPosition.x;
-        originalPosition.y = tragetPosition.y;
+        if (!turnOnInMinigame)
+            originalPosition.y = tragetPosition.y;
         transform.position = originalPosition;
     }
 }
