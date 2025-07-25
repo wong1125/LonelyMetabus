@@ -7,6 +7,8 @@ public class MiniGamerController : MonoBehaviour
     [SerializeField] float flapPower = 15.0f;
     [SerializeField] float fowardSpeed = 5.0f;
     bool isFlap = false;
+    bool isDie = false;
+    public bool IsDie {  get { return isDie; } }
 
     Rigidbody2D rb;
     private void Awake()
@@ -28,6 +30,8 @@ public class MiniGamerController : MonoBehaviour
 
     void FixedUpdate()
     {
+        if (isDie)
+            return;       
         Vector3 velocity = rb.velocity;
         velocity.x = fowardSpeed;
         rb.velocity = velocity;
@@ -40,5 +44,20 @@ public class MiniGamerController : MonoBehaviour
 
     }
 
-  
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        
+        if (collision.CompareTag("Coin"))
+        {
+            Debug.Log("Triggered");
+            FlappyGameManager.instance.AddScore();
+            Destroy(collision.gameObject);
+        }
+        else if (collision.CompareTag("Obstacle"))
+        {
+            isDie = true;
+        }
+    }
+
+
 }
