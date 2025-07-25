@@ -8,12 +8,19 @@ public class MiniGamerController : MonoBehaviour
     [SerializeField] float fowardSpeed = 5.0f;
     bool isFlap = false;
     bool isDie = false;
+    FlappyGameManager fGM;
     public bool IsDie {  get { return isDie; } }
 
     Rigidbody2D rb;
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        
+    }
+
+    private void Start()
+    {
+        fGM = FlappyGameManager.instance;
     }
 
     private void Update()
@@ -56,6 +63,7 @@ public class MiniGamerController : MonoBehaviour
         else if (collision.CompareTag("Obstacle"))
         {
             isDie = true;
+            fGM.GameEnd();
         }
     }
 

@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class FlappyGameManager : MonoBehaviour
 {
     public static FlappyGameManager instance;
 
+    public GameObject gameOverWindow;
+
+    public TextMeshProUGUI scoreTxt;
+
     private int score = 0;
     public int Score {  get { return score; } }
 
     private int bestScore = 0;
     public int BestScore { get { return bestScore; } }
+
 
 
     private void Awake()
@@ -22,17 +28,6 @@ public class FlappyGameManager : MonoBehaviour
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void AddScore()
     {
@@ -41,6 +36,14 @@ public class FlappyGameManager : MonoBehaviour
         {
             bestScore = Score;
         }
-        Debug.Log(score);
+        
+        scoreTxt.text = score.ToString();
     }
+
+    public void GameEnd()
+    {
+        gameOverWindow.SetActive(true);
+    }
+
+    
 }

@@ -25,4 +25,6 @@ public class PlayerController : MonoBehaviour
         Vector2 movingVector = new Vector2(horizontal, vertical) * movingSpeed;
         rb.velocity = movingVector;
     }
+
+
 }
