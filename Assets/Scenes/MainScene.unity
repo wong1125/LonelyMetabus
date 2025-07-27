@@ -2286,7 +2286,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 597573634}
-  turnOnInMinigame: 0
+  minLimtPos: {x: -5, y: -3}
+  maxLimtPos: {x: 5, y: 3}
 --- !u!1 &597573630
 GameObject:
   m_ObjectHideFlags: 0

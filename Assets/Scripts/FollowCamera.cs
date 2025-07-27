@@ -5,7 +5,9 @@ using UnityEngine;
 public class FollowCamera : MonoBehaviour
 {
     public Transform target;
-    public bool turnOnInMinigame;
+
+    [SerializeField] Vector2 minLimtPos = Vector2.zero;
+    [SerializeField] Vector2 maxLimtPos = Vector2.zero;
     
     
     // Start is called before the first frame update
@@ -21,11 +23,10 @@ public class FollowCamera : MonoBehaviour
         if (target == null)
             return;
 
-        Vector3 originalPosition = transform.position;
+        Vector3 cameraPosition = transform.position;
         Vector2 tragetPosition = target.position;
-        originalPosition.x = tragetPosition.x;
-        if (!turnOnInMinigame)
-            originalPosition.y = tragetPosition.y;
-        transform.position = originalPosition;
+        cameraPosition.x = Mathf.Clamp(target.position.x, minLimtPos.x, maxLimtPos.x);
+        cameraPosition.y = Mathf.Clamp(target.position.y, minLimtPos.y, maxLimtPos.y);
+        transform.position = cameraPosition;
     }
 }

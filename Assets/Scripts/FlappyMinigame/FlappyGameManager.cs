@@ -10,6 +10,8 @@ public class FlappyGameManager : MonoBehaviour
     public GameObject gameOverWindow;
 
     public TextMeshProUGUI scoreTxt;
+    public TextMeshProUGUI gameOverScoreTxt;
+    public TextMeshProUGUI gameOverBestScoreTxt;
 
     private int score = 0;
     public int Score {  get { return score; } }
@@ -28,12 +30,18 @@ public class FlappyGameManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        if(PlayerPrefs.HasKey("FlappyBestScore"))
+            bestScore = PlayerPrefs.GetInt("FlappyBestScore");
+    }
 
     public void AddScore()
     {
         score++;
         if (score >= bestScore)
         {
+            Debug.Log(bestScore);
             bestScore = Score;
         }
         
@@ -42,6 +50,10 @@ public class FlappyGameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        if (score == bestScore)
+            PlayerPrefs.SetInt("FlappyBestScore", bestScore);
+        gameOverScoreTxt.text = score.ToString();
+        gameOverBestScoreTxt.text = bestScore.ToString();
         gameOverWindow.SetActive(true);
     }
 

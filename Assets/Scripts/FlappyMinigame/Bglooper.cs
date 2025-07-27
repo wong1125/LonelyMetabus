@@ -18,6 +18,10 @@ public class Bglooper : MonoBehaviour
             collision.transform.position = pos;
             return;
         }
+        else
+        {
+            Destroy(collision.gameObject);
+        }
 
 
     }
