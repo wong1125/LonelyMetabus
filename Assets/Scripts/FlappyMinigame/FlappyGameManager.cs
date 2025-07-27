@@ -41,7 +41,6 @@ public class FlappyGameManager : MonoBehaviour
         score++;
         if (score >= bestScore)
         {
-            Debug.Log(bestScore);
             bestScore = Score;
         }
         

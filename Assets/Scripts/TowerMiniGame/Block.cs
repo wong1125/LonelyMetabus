@@ -6,9 +6,12 @@ public class Block : MonoBehaviour
 {
     bool isLanded = false;
     Rigidbody2D rb;
+
+    TowerGameManager tGM;
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        tGM = TowerGameManager.instance;
     }
 
     public void Drop()
@@ -23,6 +26,7 @@ public class Block : MonoBehaviour
         else
         {
             isLanded = true;
+            tGM.SetHighestBlock(this.gameObject);
             BlockSpawnController.instance.NextBlock();
         }
 
