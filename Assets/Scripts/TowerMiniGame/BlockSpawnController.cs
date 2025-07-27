@@ -9,8 +9,6 @@ public class BlockSpawnController : MonoBehaviour
     public static BlockSpawnController instance;
     
     Camera camera;
-    Camera componetCamera;
-    float initialCameraYPos = 8.0f;
     public List<GameObject> blockList;
 
     GameObject blockHeld;
@@ -38,7 +36,8 @@ public class BlockSpawnController : MonoBehaviour
         float score = TowerGameManager.instance.Score;
         if (isNextPhase) //블록이 착지했다는 신호
         {
-            camera.orthographicSize = 10 + (score / 5);
+            camera.orthographicSize = score > 10 ? 10 + ( score / 1.5f)  : 10 + (score / 5);
+
             blockHeld = Instantiate(blockList[Random.Range(0, blockList.Count)]);
             isNextPhase = false;
             isHolding = true;
@@ -51,9 +50,7 @@ public class BlockSpawnController : MonoBehaviour
         float mouseXpos = camera.ScreenToWorldPoint(mousePosition).x;
 
         if (score > spawnYpos - 5)
-        {
             blockHeld.transform.position = new Vector2(mouseXpos, score + 5);
-        }
         else
             blockHeld.transform.position = new Vector2(mouseXpos, spawnYpos);
 

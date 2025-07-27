@@ -1,37 +1,37 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class FlappyMinigameZone : MonoBehaviour
+public class Zone : MonoBehaviour
 {
+    public GameObject window;
+    protected GameObject player;
 
-    public GameObject flappyMinigameWindow;
-
-    bool canInteract = false; 
+    bool canInteract = false;
 
     private void Update()
     {
         if (canInteract && Input.GetKeyDown(KeyCode.Space))
         {
-            flappyMinigameWindow.SetActive(true);
+            window.SetActive(true);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         canInteract = true;
+        player = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         canInteract = false;
     }
-    
 
-    public void ToFlappyMiniGame()
+    public void CloseWindow()
     {
-        SceneManager.LoadScene(1);
+        window.SetActive(false);
     }
+
 }
