@@ -8,7 +8,7 @@ public class CustomizeZone : Zone
 
     public void ChangeColor()
     {
-        renderer = player.GetComponentInChildren<SpriteRenderer>();
+        renderer = GameManager.instance.player.GetComponentInChildren<SpriteRenderer>();
         renderer.color = Color.red;
     }
 

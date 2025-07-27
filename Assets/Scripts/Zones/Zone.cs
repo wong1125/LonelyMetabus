@@ -6,11 +6,9 @@ using UnityEngine.SceneManagement;
 public class Zone : MonoBehaviour
 {
     public GameObject window;
-    protected GameObject player;
+    protected bool canInteract = false;
 
-    bool canInteract = false;
-
-    private void Update()
+    protected virtual void Update()
     {
         if (canInteract && Input.GetKeyDown(KeyCode.Space))
         {
@@ -21,7 +19,6 @@ public class Zone : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision)
     {
         canInteract = true;
-        player = collision.gameObject;
     }
 
     private void OnTriggerExit2D(Collider2D collision)

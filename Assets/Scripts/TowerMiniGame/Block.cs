@@ -19,16 +19,16 @@ public class Block : MonoBehaviour
         rb.gravityScale = 1;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isLanded)
-            return;
-        else
-        {
-            isLanded = true;
-            tGM.SetHighestBlock(this.gameObject);
-            BlockSpawnController.instance.NextBlock();
-        }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (isLanded)
+    //        return;
+    //    else
+    //    {
+    //        isLanded = true;
+    //        tGM.SetHighestBlock(this.gameObject);
+    //        BlockSpawnController.instance.NextBlock();
+    //    }
 
-    }
+    //}
 }

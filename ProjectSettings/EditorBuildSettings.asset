@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FlappyMinigame.unity
     guid: bb58b94ef87284e4f8db3890a78f568c
+  - enabled: 1
+    path: Assets/Scenes/TowerMinigame.unity
+    guid: 95ef4bb80dfc71d40a2ee399bb91af46
   m_configObjects: {}
