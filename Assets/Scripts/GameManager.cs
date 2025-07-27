@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public bool OnBoat {  get { return onBoat; } }
 
     private bool lifeVest = false;
-    public bool LifeVset {  get { return lifeVest; } }
+    public bool LifeVest {  get { return lifeVest; } }
 
     private bool goodSwim = false;
     public bool GoodSwim { get { return goodSwim; } }

@@ -8,7 +8,10 @@ public class MiniGamerController : MonoBehaviour
     [SerializeField] float fowardSpeed = 5.0f;
     bool isFlap = false;
     bool isDie = false;
+
     FlappyGameManager fGM;
+    GameObject theOneKilledMe;
+
     public bool IsDie {  get { return isDie; } }
 
     Rigidbody2D rb;
@@ -38,6 +41,7 @@ public class MiniGamerController : MonoBehaviour
     void FixedUpdate()
     {
         if (isDie)
+            transform.position = theOneKilledMe.transform.position + new Vector3(-1.7f, 0, 0);
             return;       
         Vector3 velocity = rb.velocity;
         velocity.x = fowardSpeed;
@@ -63,6 +67,7 @@ public class MiniGamerController : MonoBehaviour
         else if (collision.CompareTag("Obstacle"))
         {
             isDie = true;
+            theOneKilledMe = collision.gameObject;
             fGM.GameEnd();
         }
     }

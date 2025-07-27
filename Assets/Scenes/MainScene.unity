@@ -9308,6 +9308,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DialogueCanvas: {fileID: 1733404156}
+  fence: {fileID: 732362143}
   dialogueText: {fileID: 1041715622}
   a0: "\uC5F0\uBABB \uC218\uC2EC\uC774 \uAE4A\uC5B4\uC11C \uD568\uBD80\uB85C \uBCF4\uD2B8\uB97C
     \uC0AC\uC6A9\uD558\uBA74 \uC548\uB41C\uB2E4\uB124"

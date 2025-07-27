@@ -9,8 +9,9 @@ public class Npc : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("npc!");
-        DialogueWindow.SetActive(true);
+        gameObject.SetActive(true);
+        Dialogue dialogue = DialogueWindow.GetComponent<Dialogue>();
+        dialogue.InitalDialogue();
     }
 
 }
