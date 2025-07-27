@@ -41,8 +41,10 @@ public class MiniGamerController : MonoBehaviour
     void FixedUpdate()
     {
         if (isDie)
+        {
             transform.position = theOneKilledMe.transform.position + new Vector3(-1.7f, 0, 0);
-            return;       
+            return;
+        }
         Vector3 velocity = rb.velocity;
         velocity.x = fowardSpeed;
         rb.velocity = velocity;
@@ -52,7 +54,6 @@ public class MiniGamerController : MonoBehaviour
             rb.AddForce(antiGravity);
         }
 
-
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,7 +61,6 @@ public class MiniGamerController : MonoBehaviour
         
         if (collision.CompareTag("Coin"))
         {
-            Debug.Log("Triggered");
             FlappyGameManager.instance.AddScore();
             Destroy(collision.gameObject);
         }

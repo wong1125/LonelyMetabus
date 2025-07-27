@@ -67,10 +67,10 @@ public class Dialogue : MonoBehaviour
     {
         onDialogue = true;
         this.gameObject.SetActive(true);
+        GameManager.instance.SetUIOpen();
 
         if (!firstMeet)
         {
-            Debug.Log("test");
 
             gM.SetGoodSwim();
 
@@ -94,6 +94,6 @@ public class Dialogue : MonoBehaviour
     {
         onDialogue = false;
         this.gameObject.SetActive(false);
-
+        GameManager.instance.SetUIOpen();
     }
 }

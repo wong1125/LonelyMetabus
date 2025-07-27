@@ -8,6 +8,10 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
 
     public GameObject player;
+
+    private bool isUIOpen = false;
+    public bool IsUIOpen { get { return isUIOpen; } }
+
     private bool onBoat;
     public bool OnBoat {  get { return onBoat; } }
 
@@ -23,6 +27,11 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
         }
+    }
+
+    public void SetUIOpen()
+    {
+        isUIOpen = !isUIOpen;
     }
 
     public void SetOnBoat()

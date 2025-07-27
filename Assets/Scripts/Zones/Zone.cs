@@ -12,7 +12,9 @@ public class Zone : MonoBehaviour
     {
         if (canInteract && Input.GetKeyDown(KeyCode.Space))
         {
+            GameManager.instance.SetUIOpen();
             window.SetActive(true);
+
         }
     }
 
@@ -28,6 +30,7 @@ public class Zone : MonoBehaviour
 
     public void CloseWindow()
     {
+        GameManager.instance.SetUIOpen();
         window.SetActive(false);
     }
 

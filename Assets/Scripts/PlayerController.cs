@@ -5,6 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] float movingSpeed = 5.0f;
+    float speedMemory;
+    GameManager gM;
     
     Rigidbody2D rb;
     private void Awake()
@@ -12,9 +14,20 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
     }
 
+    private void Start()
+    {
+        gM = GameManager.instance;
+        speedMemory = movingSpeed;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (gM.IsUIOpen)
+            movingSpeed = 0;
+        else
+            movingSpeed = speedMemory;
+
         ArrowMove();
     }
 
