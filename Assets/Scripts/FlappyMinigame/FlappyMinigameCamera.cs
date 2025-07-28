@@ -19,7 +19,7 @@ public class FlappyMinigameCamera : MonoBehaviour
 
         Vector3 originalPosition = transform.position;
         Vector2 tragetPosition = target.position;
-        originalPosition.x = tragetPosition.x;
+        originalPosition.x = tragetPosition.x +3.0f;
         transform.position = originalPosition;
     }
 }
