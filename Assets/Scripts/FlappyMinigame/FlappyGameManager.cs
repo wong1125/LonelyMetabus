@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using TMPro;
 using UnityEngine;
 
@@ -9,9 +10,14 @@ public class FlappyGameManager : MonoBehaviour
 
     public GameObject gameOverWindow;
 
+    public GameObject winText;
+    public GameObject loseText;
+
     public TextMeshProUGUI scoreTxt;
     public TextMeshProUGUI gameOverScoreTxt;
     public TextMeshProUGUI gameOverBestScoreTxt;
+
+
 
     private int score = 0;
     public int Score {  get { return score; } }
@@ -60,6 +66,10 @@ public class FlappyGameManager : MonoBehaviour
         gameOverScoreTxt.text = score.ToString();
         gameOverBestScoreTxt.text = bestScore.ToString();
         gameOverWindow.SetActive(true);
+        if (score >=5)
+            loseText.SetActive(false);
+        else
+            winText.SetActive(false);
     }
 
     

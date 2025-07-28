@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class CustomizeZone : Zone
 {
-    SpriteRenderer renderer;
+    new SpriteRenderer renderer;
     public GameObject sunglasses;
     public GameObject vest;
 
     public void ChangeColorPink()
     {
         renderer = GameManager.instance.player.GetComponentInChildren<SpriteRenderer>();
-        renderer.color = new Color32(255, 111, 222, 255);
+        renderer.color = new Color32(255, 180, 222, 255);
     }
 
     public void ChangeColorWhite()

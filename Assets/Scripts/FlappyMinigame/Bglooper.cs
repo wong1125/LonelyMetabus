@@ -6,7 +6,6 @@ public class Bglooper : MonoBehaviour
 {
     int numBgCount = 4;
 
-
     void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -22,7 +21,6 @@ public class Bglooper : MonoBehaviour
         {
             Destroy(collision.gameObject);
         }
-
 
     }
 

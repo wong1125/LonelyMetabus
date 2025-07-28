@@ -42,7 +42,7 @@ public class MiniGamerController : MonoBehaviour
     {
         if (isDie)
         {
-            transform.position = theOneKilledMe.transform.position + new Vector3(-1.7f, 0, 0);
+            transform.position = theOneKilledMe.transform.position + new Vector3(-1.7f, -0.2f, 0);
             return;
         }
         Vector3 velocity = rb.velocity;
@@ -51,7 +51,11 @@ public class MiniGamerController : MonoBehaviour
         Vector2 antiGravity = new Vector2(0, flapPower);
         if (isFlap)
         {
+            rb.angularVelocity = 0f;
+            rb.rotation = 0f;
+
             rb.AddForce(antiGravity);
+            
         }
 
     }
@@ -68,6 +72,7 @@ public class MiniGamerController : MonoBehaviour
         {
             isDie = true;
             theOneKilledMe = collision.gameObject;
+            rb.AddTorque(50f);
             fGM.GameEnd();
         }
     }

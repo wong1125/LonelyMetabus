@@ -7,8 +7,7 @@ using UnityEngine.UI;
 public class BlockSpawnController : MonoBehaviour
 {
     public static BlockSpawnController instance;
-    
-    Camera camera;
+    new Camera camera;
     public List<GameObject> blockList;
 
     GameObject blockHeld;
