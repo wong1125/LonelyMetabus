@@ -19,6 +19,8 @@ public class FlappyGameManager : MonoBehaviour
     private int bestScore = 0;
     public int BestScore { get { return bestScore; } }
 
+    bool isGameOver = false;
+
 
 
     private void Awake()
@@ -38,10 +40,13 @@ public class FlappyGameManager : MonoBehaviour
 
     public void AddScore()
     {
+        if (isGameOver)
+            return;
+        
         score++;
         if (score >= bestScore)
         {
-            bestScore = Score;
+            bestScore = score;
         }
         
         scoreTxt.text = score.ToString();
@@ -49,6 +54,7 @@ public class FlappyGameManager : MonoBehaviour
 
     public void GameEnd()
     {
+        isGameOver = true;
         if (score == bestScore)
             PlayerPrefs.SetInt("FlappyBestScore", bestScore);
         gameOverScoreTxt.text = score.ToString();

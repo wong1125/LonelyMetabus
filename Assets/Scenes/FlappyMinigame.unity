@@ -760,6 +760,8 @@ MonoBehaviour:
   coin: {fileID: 2088954649243280280, guid: 905fe36831f02c54ba7fae9de7ac70a4, type: 3}
   obstacle: {fileID: 1702854341694998018, guid: 7b95bc19cb55eb64fabd158342f2dc16, type: 3}
   miniGamer: {fileID: 1091753594}
+  coinInterval: 4
+  obstacleInterval: 1.7
 --- !u!4 &608028382
 Transform:
   m_ObjectHideFlags: 0

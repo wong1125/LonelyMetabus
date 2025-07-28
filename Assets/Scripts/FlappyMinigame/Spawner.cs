@@ -8,8 +8,8 @@ public class Spawner : MonoBehaviour
     public GameObject obstacle;
     public MiniGamerController miniGamer;
 
-    float coinInterval = 5;
-    float obstacleInterval = 3;
+    [SerializeField] float coinInterval = 4.0f;
+    [SerializeField] float obstacleInterval = 1.7f;
 
     
     void Start()

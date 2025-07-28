@@ -62,9 +62,6 @@ public class TowerGameManager : MonoBehaviour
                 highestBlock = block;
         }
 
-        if (highestBlock != null)
-            Debug.Log("블록 세팅");
-
     }
 
     void CalculateScore()
@@ -72,7 +69,6 @@ public class TowerGameManager : MonoBehaviour
         if(highestBlock != null)
         {
             float blockHeigt = BoundHeightCalcaulte(highestBlock);
-            Debug.Log(blockHeigt);
             if (blockHeigt > score)
             {
                 score = blockHeigt;
